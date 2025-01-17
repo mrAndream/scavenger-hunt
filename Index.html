@@ -165,7 +165,7 @@
         <button class="button" id="clearButton">Clear Images</button>
         <button class="button" id="printButton">Print</button>
     </div>
-    <div class="counter" id="counter">0/20 images loaded</div>
+    <div class="counter" id="counter">0/16 images loaded</div>
 
     <div class="paper" id="paper">
         <div class="title" contenteditable="true">Scavenger Hunt</div>
@@ -188,7 +188,7 @@
         let currentPlaceholderIndex = 0;
 
         function createPlaceholders() {
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 16; i++) {
                 const placeholder = document.createElement('div');
                 placeholder.classList.add('placeholder');
                 placeholder.innerHTML = '<span>+ Add Image</span>';
@@ -203,7 +203,7 @@
 
         function updateCounter() {
             const loadedImages = placeholders.filter((placeholder) => placeholder.querySelector('img')).length;
-            counter.textContent = `${loadedImages}/20 images loaded`;
+            counter.textContent = `${loadedImages}/16 images loaded`;
         }
 
         function addClearIcon(placeholder) {
@@ -227,7 +227,7 @@
             const files = Array.from(event.target.files);
             if (files.length) {
                 files.forEach((file) => {
-                    if (currentPlaceholderIndex < 20) {
+                    if (currentPlaceholderIndex < 16) {
                         const reader = new FileReader();
                         reader.onload = (e) => {
                             const img = document.createElement('img');
